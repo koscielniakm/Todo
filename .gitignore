@@ -1,0 +1,3 @@
+/WebContent/WEB-INF/lib/*
+/src/META-INF/persistence.xml
+/build/*
