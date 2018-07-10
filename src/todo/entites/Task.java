@@ -12,7 +12,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "task")
-public class Task {
+public class Task implements DbEntity {
 
 	@Id
 	@Column(name = "id")

@@ -14,7 +14,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "list")
-public class List {
+public class List implements DbEntity {
 
 	@Id
 	@Column(name = "id")
