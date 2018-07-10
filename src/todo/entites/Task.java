@@ -2,9 +2,12 @@ package todo.entites;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -28,6 +31,10 @@ public class Task {
 	@Column(name = "status")
 	private String status;
 	
+	@ManyToOne(fetch = FetchType.EAGER, targetEntity = List.class)
+	@JoinColumn(name = "id_list", insertable = false, updatable = false)
+	private List list;
+	
 	public Task() { }
 
 	public int getId() {
@@ -50,6 +57,10 @@ public class Task {
 		return status;
 	}
 
+	public List getList() {
+		return list;
+	}
+
 	public void setId(int id) {
 		this.id = id;
 	}
@@ -68,6 +79,10 @@ public class Task {
 
 	public void setStatus(String status) {
 		this.status = status;
+	}
+
+	public void setList(List list) {
+		this.list = list;
 	}
 	
 }
