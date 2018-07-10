@@ -19,9 +19,6 @@ public class Task implements DbEntity {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
-	@Column(name = "id_list")
-	private int idList;
-	
 	@Column(name = "name")
 	private String name;
 	
@@ -31,18 +28,14 @@ public class Task implements DbEntity {
 	@Column(name = "status")
 	private String status;
 	
-	@ManyToOne(fetch = FetchType.EAGER, targetEntity = List.class)
+	@ManyToOne(fetch = FetchType.EAGER, targetEntity = TaskList.class)
 	@JoinColumn(name = "id_list", insertable = false, updatable = false)
-	private List list;
+	private TaskList list;
 	
 	public Task() { }
 
 	public int getId() {
 		return id;
-	}
-
-	public int getIdList() {
-		return idList;
 	}
 
 	public String getName() {
@@ -57,16 +50,12 @@ public class Task implements DbEntity {
 		return status;
 	}
 
-	public List getList() {
+	public TaskList getList() {
 		return list;
 	}
 
 	public void setId(int id) {
 		this.id = id;
-	}
-
-	public void setIdList(int idList) {
-		this.idList = idList;
 	}
 
 	public void setName(String name) {
@@ -81,7 +70,7 @@ public class Task implements DbEntity {
 		this.status = status;
 	}
 
-	public void setList(List list) {
+	public void setList(TaskList list) {
 		this.list = list;
 	}
 	

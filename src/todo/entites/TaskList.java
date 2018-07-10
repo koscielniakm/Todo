@@ -13,8 +13,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "list")
-public class List implements DbEntity {
+@Table(name = "tasklist")
+public class TaskList implements DbEntity {
 
 	@Id
 	@Column(name = "id")
@@ -27,7 +27,7 @@ public class List implements DbEntity {
 	@OneToMany(mappedBy = "list", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	private Set<Task> tasks;
 	
-	public List() { }
+	public TaskList() { }
 
 	public int getId() {
 		return id;
