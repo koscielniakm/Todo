@@ -11,16 +11,17 @@ public class DaoTask extends AbstractDao implements Dao {
 	}
 	
 	public void update(Task task) {
-		if (task.getId() <= 0) throw new IncorrectIdException();
+		if (task.getId() <= 0) throw new IllegalArgumentException();
 		super.update(task);
 	}
 
 	public void remove(int id) {
-		if (id <= 0) throw new IncorrectIdException();
+		if (id <= 0) throw new IllegalArgumentException();
 		super.remove(Task.class, id);
 	}
 	
 	public Task getById(int id) {
+		if (id <= 0) throw new IllegalArgumentException();
 		Task searchedTask = PersistenceCreator.getEntityManager().find(Task.class, id);
 		PersistenceCreator.closeResources();
 		return searchedTask;
