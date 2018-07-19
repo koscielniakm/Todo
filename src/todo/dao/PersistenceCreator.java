@@ -10,31 +10,31 @@ public class PersistenceCreator {
 
 	private static final String persistenceUnitName = "TodoUnit";
 	
-	private static EntityManagerFactory entityManagerFactory;
+	private EntityManagerFactory entityManagerFactory;
 	
 	@PersistenceContext
-	private static EntityManager entityManager;
+	private EntityManager entityManager;
 	
-	private PersistenceCreator() { }
+	public PersistenceCreator() { }
 	
-	private synchronized static void createEntityManager() {
+	private void createEntityManager() {
 		entityManagerFactory = Persistence.createEntityManagerFactory(persistenceUnitName);
 		entityManager = entityManagerFactory.createEntityManager();	
 	}
 	
 	/* EntityManager and EntityTransaction returned by this methods
 	 * after using should be closed by closeResources() mehtod ! */	
-	public synchronized static EntityManager getEntityManager() {
+	public EntityManager getEntityManager() {
 		if(entityManager == null) createEntityManager();
 		return entityManager;
 	}
 	
-	public synchronized static EntityTransaction getTransaction() {
+	public EntityTransaction getTransaction() {
 		if(entityManager == null) createEntityManager();
 		return entityManager.getTransaction();
 	}
 	
-	public synchronized static void closeResources() {
+	public void closeResources() {
 		entityManager.close();
 		entityManagerFactory.close();
 	}

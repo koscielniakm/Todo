@@ -22,15 +22,15 @@ public class DaoTaskList extends AbstractDao implements Dao {
 
 	public TaskList getById(int id) {
 		if (id <= 0) throw new IllegalArgumentException();
-		TaskList searchedList = PersistenceCreator.getEntityManager().find(TaskList.class, id);
-		PersistenceCreator.closeResources();
+		TaskList searchedList = persistenceCreator.getEntityManager().find(TaskList.class, id);
+		persistenceCreator.closeResources();
 		return searchedList;
 	}
 	
 	public List<TaskList> getAll() {
-		List<TaskList> lists = PersistenceCreator.
-			getEntityManager().createQuery("FROM Tasklist l", TaskList.class).getResultList();
-		PersistenceCreator.closeResources();
+		List<TaskList> lists = persistenceCreator.
+			getEntityManager().createQuery("FROM TaskList t", TaskList.class).getResultList();
+		persistenceCreator.closeResources();
 		return lists;
 	}
 	

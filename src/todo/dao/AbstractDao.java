@@ -8,30 +8,34 @@ import todo.entites.DbEntity;
 
 public abstract class AbstractDao {
 
-	public AbstractDao() { }
+	protected PersistenceCreator persistenceCreator;
+	
+	public AbstractDao() {
+		persistenceCreator = new PersistenceCreator();
+	}
 	
 	protected void create(DbEntity entity) {
-		PersistenceCreator.getTransaction().begin();
-		PersistenceCreator.getEntityManager().persist(entity);
-		PersistenceCreator.getTransaction().commit();
-		PersistenceCreator.closeResources();
+		persistenceCreator.getTransaction().begin();
+		persistenceCreator.getEntityManager().persist(entity);
+		persistenceCreator.getTransaction().commit();
+		persistenceCreator.closeResources();
 	}
 	
 	protected void update(DbEntity entity) {
-		PersistenceCreator.getTransaction().begin();
-		PersistenceCreator.getEntityManager().merge(entity);
-		PersistenceCreator.getTransaction().commit();
-		PersistenceCreator.closeResources();
+		persistenceCreator.getTransaction().begin();
+		persistenceCreator.getEntityManager().merge(entity);
+		persistenceCreator.getTransaction().commit();
+		persistenceCreator.closeResources();
 	}
 	
 	protected <T extends DbEntity> void remove(Class<T> entity, int id) {
-		EntityManager entityManager = PersistenceCreator.getEntityManager();
+		EntityManager entityManager = persistenceCreator.getEntityManager();
 		EntityTransaction currentTransation = entityManager.getTransaction();
 		currentTransation.begin();
 		Query query = entityManager.createQuery("DELETE " + entity.getName() + " e where e.id = " + id);
 		query.executeUpdate();
 		currentTransation.commit();
-		PersistenceCreator.closeResources();
+		persistenceCreator.closeResources();
 	}
 	
 }
