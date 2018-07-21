@@ -1,4 +1,41 @@
 body{
-	background: black;
+	margin: 0;
+	padding: 0;
+	height: 100%;
+}
+
+#navbar{
+	width: 100%;
+	height: 50px;
+	background: #43B160;
+	color: #FFF;
+	display: table;
+}
+#navbar-content{
+
+	height: 50px;
+	display: table-cell;
+	vertical-align: middle;
+}
+#navbar-logo{
+	
+}
+
+#footer{
+	width: 100%;
+	height: 50px;
+	background: #43B160;
+	position: absolute;
+	bottom: 0;
+	display: table;
+	text-align: center;
+}
+#footer-content{
+	display: table-cell;
+	vertical-align: middle;
+}
+.footer-text{
+	margin: 0;
+	padding: 0;
 	color: white;
 }
