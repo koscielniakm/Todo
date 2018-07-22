@@ -1,4 +1,4 @@
-package todo.api;
+package todo.api.support;
 
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;
