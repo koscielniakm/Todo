@@ -13,6 +13,8 @@ public class TaskListResponseCreator {
 	public TaskListResponseCreator() { }
 	
 	public Response createJsonFromList(List<TaskList> list) {
+		if (list == null || list.size() == 0)
+			return Response.noContent().build();
 		JsonArrayBuilder jsonArrayBuilder = Json.createArrayBuilder();
 		for(TaskList tl : list)
 			jsonArrayBuilder.add(Json.createObjectBuilder()
@@ -23,6 +25,8 @@ public class TaskListResponseCreator {
 	}
 	
 	public Response createJsonFromSingleObject(TaskList taskList) {
+		if (taskList == null)
+			return Response.noContent().build();
 		JsonArrayBuilder jsonArrayBuilder = Json.createArrayBuilder();
 		jsonArrayBuilder.add(Json.createObjectBuilder()
 				.add("id", taskList.getId())
