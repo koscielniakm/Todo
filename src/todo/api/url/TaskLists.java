@@ -4,8 +4,10 @@ import java.util.List;
 
 import javax.json.JsonObject;
 import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
@@ -19,8 +21,9 @@ import todo.services.crud.TaskListService;
 @Path("tasklists")
 public class TaskLists {
 
+	/* use only by get method */
 	private TaskListService taskListService;
-	
+	/* use only by get method */
 	private TaskListResponseCreator responseCreator;
 	
 	@GET
@@ -47,6 +50,22 @@ public class TaskLists {
 		TaskList createdTaskList = new TaskList();
 		createdTaskList.setName(taskListName);
 		if (getTaskListService().create(createdTaskList)) {
+			return Response.ok().build();
+		} else {
+			return Response.status(400).build();
+		}
+	}
+	
+	@PUT
+	@Path("/")
+	@Consumes(MediaType.APPLICATION_JSON)
+	public Response updateTasklist(JsonObject json) {
+		int taskListId = json.getInt("id");
+		String taskListName = json.getString("name");
+		TaskList taskListToUpdate = new TaskList();
+		taskListToUpdate.setId(taskListId);
+		taskListToUpdate.setName(taskListName);
+		if (getTaskListService().update(taskListToUpdate)) {
 			return Response.ok().build();
 		} else {
 			return Response.status(400).build();
