@@ -72,6 +72,18 @@ public class TaskLists {
 		}
 	}
 	
+	@DELETE
+	@Path("/")
+	@Consumes(MediaType.APPLICATION_JSON)
+	public Response removeTasklist(JsonObject json) {
+		int taskListId = json.getInt("id");
+		if (getTaskListService().remove(taskListId)) {
+			return Response.ok().build();
+		} else {
+			return Response.status(400).build();
+		}
+	}
+	
 	private TaskListResponseCreator getResponseCreator() {
 		if (responseCreator == null)
 			responseCreator = new TaskListResponseCreator();
