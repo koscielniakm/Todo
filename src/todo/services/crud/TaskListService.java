@@ -4,18 +4,21 @@ import java.util.List;
 
 import todo.dao.DaoTaskList;
 import todo.entites.TaskList;
-import todo.services.validation.TaskListValidator;
+import todo.services.validation.TaskListValidatorImpl;
 
 public class TaskListService {
 
 	private DaoTaskList taskListAccess;
 	
+	private TaskListValidatorImpl validator;
+	
 	public TaskListService() {
 		taskListAccess = new DaoTaskList();
+		validator = new TaskListValidatorImpl();
 	}
 	
 	public synchronized boolean create(TaskList taskList) {
-		if (TaskListValidator.validateBeforeCreate(taskList)) {
+		if (validator.validateBeforeCreate(taskList)) {
 			taskListAccess.create(taskList);
 			return true;
 		} else {
@@ -24,7 +27,7 @@ public class TaskListService {
 	}
 	
 	public synchronized boolean update(TaskList taskList) {
-		if (TaskListValidator.validateBeforeUpdate(taskList)) {
+		if (validator.validateBeforeUpdate(taskList)) {
 			taskListAccess.update(taskList);
 			return true;
 		} else {
@@ -33,7 +36,7 @@ public class TaskListService {
 	}
 	
 	public synchronized boolean remove(int id) {
-		if (TaskListValidator.validateBeforeRemove(id)) {
+		if (validator.validateBeforeRemove(id)) {
 			taskListAccess.remove(id);
 			return true;
 		} else {
