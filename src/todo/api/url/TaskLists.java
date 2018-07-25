@@ -18,7 +18,7 @@ import todo.api.support.TaskListResponseCreator;
 import todo.entites.TaskList;
 import todo.services.crud.TaskListService;
 
-@Path("tasklists")
+@Path("tasklist")
 public class TaskLists {
 
 	/* use only by get method */
