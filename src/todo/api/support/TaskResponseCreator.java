@@ -19,7 +19,7 @@ public class TaskResponseCreator {
 		for(Task t : list)
 			jsonArrayBuilder.add(Json.createObjectBuilder()
 				.add("id", t.getId())
-				.add("id_list", t.getList().getId())
+				.add("id_list", t.getTaskListId())
 				.add("name", t.getName())
 				.add("description", t.getDescription())
 				.add("status", t.getStatus())

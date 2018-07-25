@@ -15,7 +15,7 @@ public class TaskValidatorImpl implements TaskValidator {
 	public boolean validateBeforeCreate(Task object) {
 		if (validateName(object.getName())
 			&& validateDescription(object.getDescription())
-			&& validateTaskList(object.getList())
+			&& validateTaskList(object.getTaskListId())
 		) return true;
 		else
 			return false;
@@ -25,7 +25,7 @@ public class TaskValidatorImpl implements TaskValidator {
 	public boolean validateBeforeUpdate(Task object) {
 		if (validateName(object.getName())
 				&& validateDescription(object.getDescription())
-				&& validateTaskList(object.getList())
+				&& validateTaskList(object.getTaskListId())
 			) return true;
 			else
 				return false;
@@ -62,8 +62,8 @@ public class TaskValidatorImpl implements TaskValidator {
 		return false;
 	}
 	
-	private boolean validateTaskList(TaskList taskList) {
-		if (taskList.getId() < 0) return false;
+	private boolean validateTaskList(int taskListId) {
+		if (taskListId < 0) return false;
 		else return true;
 	}
 	
