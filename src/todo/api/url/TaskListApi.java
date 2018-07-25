@@ -19,7 +19,7 @@ import todo.entites.TaskList;
 import todo.services.crud.TaskListService;
 
 @Path("tasklist")
-public class TaskLists {
+public class TaskListApi implements CrudApi {
 
 	/* use only by get method */
 	private TaskListService taskListService;
@@ -28,24 +28,27 @@ public class TaskLists {
 	
 	@GET
 	@Path("/")
+	@Override
 	@Produces(MediaType.APPLICATION_JSON)
-	public Response getAllTaskLists() {
+	public Response getAll() {
 		List<TaskList> allTaskLists = getTaskListService().getAll();
 		return getResponseCreator().createJsonFromList(allTaskLists);
 	}
 	
 	@GET
 	@Path("/{id}")
+	@Override
 	@Produces(MediaType.APPLICATION_JSON)
-	public Response getTasklistById(@PathParam("id") int taskListId) {
+	public Response getById(@PathParam("id") int taskListId) {
 		TaskList taskList = getTaskListService().getById(taskListId);
 		return getResponseCreator().createJsonFromSingleObject(taskList);
 	}
 	
 	@POST
 	@Path("/")
+	@Override
 	@Consumes(MediaType.APPLICATION_JSON)
-	public Response createTasklist(JsonObject json) {
+	public Response create(JsonObject json) {
 		String taskListName = json.getString("name");
 		TaskList createdTaskList = new TaskList();
 		createdTaskList.setName(taskListName);
@@ -58,8 +61,9 @@ public class TaskLists {
 	
 	@PUT
 	@Path("/")
+	@Override
 	@Consumes(MediaType.APPLICATION_JSON)
-	public Response updateTasklist(JsonObject json) {
+	public Response update(JsonObject json) {
 		int taskListId = json.getInt("id");
 		String taskListName = json.getString("name");
 		TaskList taskListToUpdate = new TaskList();
@@ -74,8 +78,9 @@ public class TaskLists {
 	
 	@DELETE
 	@Path("/")
+	@Override
 	@Consumes(MediaType.APPLICATION_JSON)
-	public Response removeTasklist(JsonObject json) {
+	public Response remove(JsonObject json) {
 		int taskListId = json.getInt("id");
 		if (getTaskListService().remove(taskListId)) {
 			return Response.ok().build();
