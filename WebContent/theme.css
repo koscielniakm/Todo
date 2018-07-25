@@ -1,41 +1,61 @@
-body{
-	margin: 0;
-	padding: 0;
+html,body{
 	height: 100%;
+	font-family: 'Raleway';
+	-moz-user-select: none;
+	user-select: none;
 }
-
-#navbar{
-	width: 100%;
-	height: 50px;
-	background: #43B160;
-	color: #FFF;
-	display: table;
-}
-#navbar-content{
-
-	height: 50px;
-	display: table-cell;
-	vertical-align: middle;
-}
-#navbar-logo{
-	
-}
-
-#footer{
-	width: 100%;
-	height: 50px;
-	background: #43B160;
-	position: absolute;
-	bottom: 0;
-	display: table;
-	text-align: center;
-}
-#footer-content{
-	display: table-cell;
-	vertical-align: middle;
-}
-.footer-text{
+p{
 	margin: 0;
 	padding: 0;
+}
+.fontello {
+	background-image: url('img/alpha_w_50.png');
 	color: white;
+	padding: 5px;
+	border-radius: 50% 50% 50% 50%;
+}
+.icon-list{
+	margin-right: 10px;
+}
+.icon-plus{
+	margin-right: 10px;
+}
+
+#gui-container{
+	height: 100%;
+	background-image: linear-gradient(to top, #112c4f, #173f71, #1e5396, #2668bc, #307ee3);
+	/*background-image: linear-gradient(to top, #37052a, #5f0b3d, #8a124b, #b71e54, #e33057);*/
+}
+
+/* Sidebar elements */
+.sidebar{
+	color: white;
+
+	height: 100%;
+	min-height: 100%;
+}
+
+.sidebar-row{
+	padding: 10px;
+}
+
+.sidebar-row-border{
+	border-bottom: 1px solid #2668bc;
+}
+
+.sidebar-row-hover{
+	padding: 10px;
+	opacity: 0.6;
+}
+.sidebar-row-hover:hover{
+	background-image: url('img/alpha_b_30.png');
+	opacity: 0.9;
+}
+
+/* Menu */
+#menu{
+
+}
+#menu-app-logo{
+	text-align: center;
 }

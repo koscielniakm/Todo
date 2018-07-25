@@ -5,10 +5,8 @@
 	<!-- Meta -->
 	<meta charset="UTF-8">
 	<!-- Style -->
-	<link rel="stylesheet" 
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
-	crossorigin="anonymous">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" 
+	integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
 	<link rel="stylesheet" href="theme.css" type="text/css" />
 	<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet"> 
 	<link rel="stylesheet" href="css/fontello.css" type="text/css" />
@@ -16,25 +14,37 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body>
-	
-	<div id="navbar" class="container-fluid">
-
-		<div id="navbar-content" class="container">
-
-			<div id="navbar-logo">
-				Todo App
+	<div id="gui-container" class="container-fluid h-100">
+		<div class="row h-100">
+			<div id="tasklists" class="sidebar col-lg-2">
+				<div class="sidebar-row sidebar-row-border row">
+					<p>Tasklist menu</p>
+				</div>
+				<div class="sidebar-row-hover row">
+					<p><span class="fontello icon-list"></span>Tasklist 1</p>
+				</div>
+				<div class="sidebar-row-hover row">
+					<p><span class="fontello icon-list"></span>Tasklist 2</p>
+				</div>
+				<div class="sidebar-row-hover row">
+					<p><span class="fontello icon-list"></span>My tasklist</p>
+				</div>
+				<div class="sidebar-row-hover row">
+					<p><span class="fontello icon-plus"></span>Add tasklist ...</p>
+				</div>
 			</div>
-
+			<div id="task-container" class="col-lg-8">
+				test
+			</div>
+			<div id="menu" class="sidebar col-lg-2">
+				<div class="sidebar-row row text-center">
+					<div id="menu-app-logo" class="text-center">
+						<p><span class="icon-pencil"></span>TodoApp</p>
+					</div>
+				</div>
+			</div>
 		</div>
-
 	</div>
-	
-	<div id="footer" class="container-fluid">
-		<div id="footer-content">
-			<p class="footer-text">Footer</p>
-		</div>
-	</div>
-
 	<!-- JavaScript -->
 	<script src="js/main.js"></script>
 	
