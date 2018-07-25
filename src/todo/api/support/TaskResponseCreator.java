@@ -41,5 +41,4 @@ public class TaskResponseCreator {
 		return Response.ok(jsonArrayBuilder.build()).build();
 	}
 	
-	
 }
