@@ -19,6 +19,9 @@ public class Task implements DbEntity {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
+	@Column(name = "id_list")
+	private int taskListId;
+	
 	@Column(name = "name")
 	private String name;
 	
@@ -50,6 +53,10 @@ public class Task implements DbEntity {
 		return status;
 	}
 
+	public int getTaskListId() {
+		return taskListId;
+	}
+
 	public TaskList getList() {
 		return list;
 	}
@@ -72,6 +79,10 @@ public class Task implements DbEntity {
 
 	public void setList(TaskList list) {
 		this.list = list;
+	}
+	
+	public void setTaskListId(int taskListId) {
+		this.taskListId = taskListId;
 	}
 	
 }
