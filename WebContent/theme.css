@@ -1,8 +1,8 @@
 html,body{
 	height: 100%;
 	font-family: 'Raleway';
-	-moz-user-select: none;
-	user-select: none;
+	/*-moz-user-select: none;
+	user-select: none;*/
 }
 p{
 	margin: 0;
