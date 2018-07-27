@@ -48,8 +48,8 @@ public class TaskApi implements CrudApi {
 	@Path("/tasklist/{id}")
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response getByTaskListId(@PathParam("id") int id) {
-		Task task = getService().getById(id);
-		return getResponseCreator().createJsonFromSingleObject(task);
+		List<Task> tasks = getService().getByTaskListId(id);
+		return getResponseCreator().createJsonFromList(tasks);
 	}
 
 	@POST
