@@ -53,4 +53,8 @@ public class TaskService {
 		return taskAccess.getById(id);
 	}
 	
+	public synchronized List<Task> getByTaskListId(int taskListId) {
+		return taskAccess.getByTaskListId(taskListId);
+	}
+	
 }

@@ -21,6 +21,7 @@ public class TaskListResponseCreator {
 				.add("id", tl.getId())
 				.add("name", tl.getName())
 			);
+		System.out.println("WORKS");
 		return Response.ok(jsonArrayBuilder.build()).build();
 	}
 	
