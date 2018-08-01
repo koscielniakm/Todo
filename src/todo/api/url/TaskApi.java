@@ -61,7 +61,7 @@ public class TaskApi implements CrudApi {
 		Integer idOfList = json.getInt("id_list");
 		String name = json.getString("name");
 		String description = json.getString("description");
-		String status = json.getString("status");
+		Integer status = json.getInt("status");
 		createdTask.setTaskListId(idOfList);
 		createdTask.setName(name);
 		createdTask.setDescription(description);
@@ -81,7 +81,7 @@ public class TaskApi implements CrudApi {
 		Integer id = json.getInt("id");
 		String name = json.getString("name");
 		String description = json.getString("description");
-		String status = json.getString("status");
+		Integer status = json.getInt("status");
 		taskToUpdate.setId(id);
 		taskToUpdate.setName(name);
 		taskToUpdate.setDescription(description);
