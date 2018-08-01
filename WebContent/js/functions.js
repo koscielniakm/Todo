@@ -2,6 +2,17 @@ function getTasklistRowDiv(id, taskListName) {
   return '<div id="' + id + '">p><span class="fontello icon-list"></span>' + taskListName +'</p></div>';
 }
 
+function getStatusString(statusDbValue) {
+  if ( statusDbValue == 0 ) return "In progress.";
+  else if (statusDbValue == 1) return "Done.";
+  else return "Error.";
+}
+
+function getDescriptionFromDbValue(dbDescription) {
+  if (dbDescription == "" || dbDescription == undefined)
+    return "No description.";
+  else return dbDescription;
+}
 
 function loadTasks(taskListId) {
   $.ajax({
@@ -14,9 +25,11 @@ function loadTasks(taskListId) {
 
       for(let i = 0; i < data.length; i++) { 
         $('#tasks').append(
-        '<div class="task" id="' + data[i]['id'] +
-        '"><p>' + data[i]['name'] +
-        '</p></div>');
+        '<div class="task" id="' + data[i]['id'] +'">' +
+          '<div>' + data[i]['name'] + '</div>' +
+          '<div class="task-description">' + getDescriptionFromDbValue(data[i]['description']) + "</div>" +
+          '<div class="">' + getStatusString(data[i]['status']) + '</div>' +
+        '</div>');
       }
 
   },
@@ -59,11 +72,6 @@ function loadTaskListMenu() {
     }
   });
 };
-
-
-function assignActionsToTaskListMenu() {
-
-}
 
 
 loadTaskListMenu();
