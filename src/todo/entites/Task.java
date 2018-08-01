@@ -29,7 +29,7 @@ public class Task implements DbEntity {
 	private String description;
 	
 	@Column(name = "status")
-	private String status;
+	private int status;
 	
 	@ManyToOne(fetch = FetchType.EAGER, targetEntity = TaskList.class)
 	@JoinColumn(name = "id_list", insertable = false, updatable = false)
@@ -49,7 +49,7 @@ public class Task implements DbEntity {
 		return description;
 	}
 
-	public String getStatus() {
+	public int getStatus() {
 		return status;
 	}
 
@@ -73,7 +73,7 @@ public class Task implements DbEntity {
 		this.description = description;
 	}
 
-	public void setStatus(String status) {
+	public void setStatus(int status) {
 		this.status = status;
 	}
 
