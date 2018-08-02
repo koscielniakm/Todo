@@ -9,6 +9,14 @@ a:focus{
 	color: white;
 	text-decoration: none;
 }
+button{
+	margin: 0;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	background: 0;
+	border: 0;
+	border-radius: 0;
+}
 html,body{
 	height: 100%;
 	font-family: 'Raleway';
@@ -16,11 +24,12 @@ html,body{
 	user-select: none;
 	background-attachment: fixed;
 	background-repeat: no-repeat;
-	background-image: linear-gradient(to right bottom, #de4242, #e64b3d, #ed5538, #f35f32, #f8692b);
+	background-image: linear-gradient(to left, #383560, #353252, #323044, #2e2d37, #2a2a2a);
 	/*background-image: linear-gradient(to top, #112c4f, #173f71, #1e5396, #2668bc, #307ee3);*/
 	/*background-image: linear-gradient(to top, #37052a, #5f0b3d, #8a124b, #b71e54, #e33057);*/
 	/*background-image: linear-gradient(to bottom, #4c0c3b, #4c0c3e, #4d0b42, #4c0c45, #4c0c49);
 	/*background-image: linear-gradient(to bottom, #3b7a3e, #417f3f, #488440, #4e8940, #558e41);*/
+	background: midnightblue;
 }
 p{
 	margin: 0;
@@ -49,7 +58,8 @@ p{
 /* Sidebar elements */
 .sidebar{
 	color: white;
-	background-image: url('img/alpha_b_20.png');
+	background: #2E2E2E;
+	background: blue;
 	height: 100%;
 	min-height: 100%;
 	border-right: 1px solid #252525;
@@ -70,6 +80,13 @@ p{
 .sidebar-row-hover:hover{
 	background-image: url('img/alpha_b_30.png');
 	opacity: 0.9;
+}
+
+/* Topbar */
+#topbar{
+	background: #2E2E2E;
+	background: blue;
+	margin-top: -1px;
 }
 
 /* Menu */
