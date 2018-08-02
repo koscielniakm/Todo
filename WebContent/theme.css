@@ -1,8 +1,26 @@
+a{
+	color: white;
+}
+a:hover{
+	color: white;
+	text-decoration: none;
+}
+a:focus{
+	color: white;
+	text-decoration: none;
+}
 html,body{
 	height: 100%;
 	font-family: 'Raleway';
-	/*-moz-user-select: none;
-	user-select: none;*/
+	-moz-user-select: none;
+	user-select: none;
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+	background-image: linear-gradient(to right bottom, #de4242, #e64b3d, #ed5538, #f35f32, #f8692b);
+	/*background-image: linear-gradient(to top, #112c4f, #173f71, #1e5396, #2668bc, #307ee3);*/
+	/*background-image: linear-gradient(to top, #37052a, #5f0b3d, #8a124b, #b71e54, #e33057);*/
+	/*background-image: linear-gradient(to bottom, #4c0c3b, #4c0c3e, #4d0b42, #4c0c45, #4c0c49);
+	/*background-image: linear-gradient(to bottom, #3b7a3e, #417f3f, #488440, #4e8940, #558e41);*/
 }
 p{
 	margin: 0;
@@ -20,19 +38,21 @@ p{
 .icon-plus{
 	margin-right: 10px;
 }
+.icon-github-circled{
+	margin-right: 10px;
+}
 
 #gui-container{
 	height: 100%;
-	background-image: linear-gradient(to top, #112c4f, #173f71, #1e5396, #2668bc, #307ee3);
-	/*background-image: linear-gradient(to top, #37052a, #5f0b3d, #8a124b, #b71e54, #e33057);*/
 }
 
 /* Sidebar elements */
 .sidebar{
 	color: white;
-
+	background-image: url('img/alpha_b_20.png');
 	height: 100%;
 	min-height: 100%;
+	border-right: 1px solid #252525;
 }
 
 .sidebar-row{
@@ -40,7 +60,7 @@ p{
 }
 
 .sidebar-row-border{
-	border-bottom: 1px solid #2668bc;
+	border-bottom: 1px solid #252525;
 }
 
 .sidebar-row-hover{
@@ -58,4 +78,19 @@ p{
 }
 #menu-app-logo{
 	text-align: center;
+}
+
+#task-container{
+
+}
+.task{
+	color: white;
+	margin: 10px;
+}
+.task-name-slot{
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+.task-name{
+	font-size: 20px;
 }
