@@ -26,6 +26,14 @@ public class DaoTask extends AbstractDao implements Dao {
 		persistenceCreator.closeResources();
 		return searchedTask;
 	}
+
+	public List<Task> getByTaskListId(int taskListId) {
+		List<Task> tasks = persistenceCreator
+			.getEntityManager().createQuery("FROM Task t WHERE t.taskListId = :id", Task.class)
+			.setParameter("id", taskListId).getResultList();
+		persistenceCreator.closeResources();
+		return tasks;
+	}
 	
 	public List<Task> getAll() {
 		List<Task> tasks = persistenceCreator.

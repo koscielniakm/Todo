@@ -5,17 +5,17 @@ import java.util.List;
 import todo.dao.DaoTask;
 import todo.entites.Task;
 import todo.services.validation.TaskValidator;
-import todo.services.validation.TaskValidatorImpl;
+import todo.services.validation.Validator;
 
 public class TaskService {
 
 	private DaoTask taskAccess;
 	
-	private TaskValidator validator;
+	private Validator<Task> validator;
 	
 	public TaskService() {
 		taskAccess = new DaoTask();
-		validator = new TaskValidatorImpl();
+		validator = new TaskValidator();
 	}
 	
 	public synchronized boolean create(Task task) {

@@ -2,7 +2,7 @@ package todo.services.validation;
 
 import todo.entites.Task;
 
-public class TaskValidatorImpl implements Validator<Task> {
+public class TaskValidator implements Validator<Task> {
 
 	private static final int NAME_MIN_LENGTH = 3;
 	private static final int NAME_MAX_LENGTH = 30;

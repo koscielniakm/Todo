@@ -2,7 +2,7 @@ package todo.services.validation;
 
 import todo.entites.TaskList;
 
-public class TaskListValidatorImpl implements Validator<TaskList> {
+public class TaskListValidator implements Validator<TaskList> {
 
 	private static final int NAME_MIN_LENGTH = 3; 
 	private static final int NAME_MAX_LENGTH = 30; // Max database varchar length 
